@@ -9,12 +9,12 @@ import axios from 'axios'
 
 
 function Card({movie, isLargeRow, deleteShow}) {
+  // Set genre name obj with key value pair as genre ID : genre name
   const[genreName, setGenreName] = useState({})
   const obj ={}
   const gen = []
   const genName=[]
   const genID=[]
-
   useEffect(()=>{
     async function genreList(){
         const res = await axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=3d39d6bfe362592e6aa293f01fbcf9b9')
@@ -33,7 +33,7 @@ function Card({movie, isLargeRow, deleteShow}) {
     }
     genreList()
   }, [])
-  
+    // Add movie to My List
     const user = useSelector(selectUser)
     const [isLiked, setIsLiked] = useState(false)
     const [hover, setHover] = useState(false)
@@ -48,13 +48,13 @@ function Card({movie, isLargeRow, deleteShow}) {
             id: movie.id,
             title: movie?.title || movie?.name || movie?.original_name,
             poster_path: movie.poster_path,
-            backdrop_path: movie.backdrop_path
+            backdrop_path: movie.backdrop_path,
+            genre_ids: movie.genre_ids
           })
         })
       }
       }
-    
-    
+      
   return (                
     <div 
     className='card_container'
@@ -86,7 +86,10 @@ function Card({movie, isLargeRow, deleteShow}) {
                 <ThumbUpIcon title="Like" onClick={()=> setIsLiked(true)}/>
               )}
               {saved ? (
-                <CheckCircleIcon onClick={() => deleteShow(movie.id)}/>
+                <CheckCircleIcon onClick={() => {
+                  deleteShow(movie.id)
+                  setSaved(false)
+                }}/>
               ) : (
                 <PlusCircleIcon onClick={savedMovies} title="Add to my list"/>
               )}
@@ -96,13 +99,11 @@ function Card({movie, isLargeRow, deleteShow}) {
           
           </div>
           <div className='hovered_genres'>
-              <ul>
                 {movie.genre_ids.map((genre) => (
-                  <li>
+                  <p>
                     {genreName[genre]}
-                  </li>
+                  </p>
                 ))}
-              </ul>
           </div>
         </div>
         

@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/counter/userSlice';
 import ProfileScreen from './screens/ProfileScreen';
 import MyList from './screens/MyList';
+import SearchScreen from './screens/SearchScreen';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
             <Route exact path="/" element={<HomeScreen />} />
             <Route path="/profile" element={<ProfileScreen />} />
             <Route path="/mylist" element={<MyList />} />
+            <Route path="/search" element={<SearchScreen />} />
             </Routes>
           )}
         

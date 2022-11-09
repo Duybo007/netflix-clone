@@ -12,6 +12,5 @@ const requests = {
     fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`
 }
 
-// https://api.themoviedb.org/3/search/movie?api_key=db95773a7fb212ba790d71f6adac0e7e&query=cars
 
 export default requests

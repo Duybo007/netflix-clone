@@ -54,10 +54,15 @@
     transition: 0.3s ease-in-out;
 }
 
-.card_container .hovered .hovered_info .hovered_genres > ul {
+.card_container .hovered .hovered_info .hovered_genres{
     display: flex;
-    gap: 2rem;
+}
+
+.card_container .hovered .hovered_info .hovered_genres > p {
+    display: flex;
+    margin-right: 1rem;
     list-style: none;
+    left: -5vh;
 }
 
 
