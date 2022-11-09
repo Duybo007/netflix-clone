@@ -1,0 +1,21 @@
+.myList {
+    height: 100vh; 
+    overflow: hidden;
+    margin: 0;
+}
+
+.myList_info {
+    color: #fff;
+    position: absolute;
+    margin-top: 100px;
+    object-fit: contain;
+    margin-left: 20px;
+}
+
+.myList_info > h1 {
+    margin-bottom: 20px;
+}
+
+.myList_movies {
+    display: flex;
+}

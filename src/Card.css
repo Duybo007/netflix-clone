@@ -1,0 +1,64 @@
+.card_container{
+  position: relative;
+}
+
+.card_container > img {
+    border-radius: 0.2rem;
+    z-index: 10;
+}
+
+
+.card_container .hovered {
+    z-index: 99;
+    height: max-content;
+    width: 24rem;
+    position: absolute;
+    top: -2.6vh;
+    left: -4vh;
+    border-radius: 0.3rem;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
+    background-color: #181818;
+    transition: 0.5s ease-in-out;
+}
+
+.card_container .hovered .hovered_poster {
+    position: relative;
+    height: 140px;
+}
+
+.card_container .hovered .hovered_poster > img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 0.3rem;
+        top: 0;
+        z-index: 4;
+        position: absolute;
+}
+
+.card_container .hovered .hovered_info{
+    padding: 1rem;
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card_container .hovered .hovered_info .hovered_icons .hovered_icons_controls {
+    display: flex;
+    gap: 4rem;
+}
+
+.card_container .hovered .hovered_info .hovered_icons_controls > svg {
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.card_container .hovered .hovered_info .hovered_genres > ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+
+
