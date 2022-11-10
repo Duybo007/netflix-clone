@@ -5,6 +5,7 @@ import {SearchIcon} from '@heroicons/react/solid'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { searchMovies } from './features/counter/userSlice';
+import { async } from '@firebase/util';
 
 function Nav() {
     const [showSearch, setShowSearch] = useState(false);
@@ -38,13 +39,13 @@ function Nav() {
       const [url_set,setUrl]=useState(base_Url)
       
       //Search movie with search bar
-      const searchMovie=(evt) => {
+      const searchMovie= (evt) => {
         if(evt.key=="Enter"){
             evt.preventDefault()
             const url = `https://api.themoviedb.org/3/search/movie?api_key=db95773a7fb212ba790d71f6adac0e7e&query=${search}`
             setUrl(url)
             setSearch(" ")
-            navigate('/search')
+            // navigate('/search')
             
         }
       }
@@ -52,6 +53,7 @@ function Nav() {
         async function fetchData(){
             const res = await axios.get(url_set)
             dispatch(searchMovies(res.data.results))
+
         }
         fetchData()
       }, [url_set])
@@ -59,9 +61,11 @@ function Nav() {
   return (
     <div className={`nav ${show && "nav_black"}`}>
         <div className='nav_contents'>
+            <div className='logo'>
             <img 
             onClick={()=> navigate("/")}
             className='nav_logo' src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt=''/>
+            </div>
             <div className='nav_links'>
                 {links.map(({name, link})=>
                 <p onClick={()=> navigate(link)}>{name}</p>
@@ -71,9 +75,7 @@ function Nav() {
             <div className={`search ${showSearch ? "show-search" : ""}`}>
             <SearchIcon 
             onClick={() => setShowSearch(true)}
-            onBlur={() => {
-            setShowSearch(false);
-            }}/>
+            onBlur={() => {setShowSearch(false);}}/>
             
             <input
                 onChange={(e)=>{setSearch(e.target.value)}}

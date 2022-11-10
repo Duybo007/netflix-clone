@@ -65,5 +65,7 @@
     left: -5vh;
 }
 
-
+.row_posterLarge{
+    max-height: 250px;
+}
 

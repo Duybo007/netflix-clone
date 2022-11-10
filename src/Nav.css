@@ -13,8 +13,9 @@
 .nav_links{
     display: flex;
     gap: 2rem;
-    margin-left: 12%;
     cursor: pointer;
+    position: fixed;
+    left: 13%;
 }
 
 .nav_links > p:hover{
@@ -23,13 +24,18 @@
 
 .nav_contents {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
     margin-top: 5px;
 }
 
+.logo{
+    
+}
+
 .nav_logo{
     position: fixed;
+    top: 20px;
     left: 0;
     width: 150px;
     object-fit: contain;

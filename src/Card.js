@@ -75,7 +75,7 @@ function Card({movie, isLargeRow, deleteShow}) {
       className={`row_poster ${isLargeRow && "row_posterLarge"}`}
       key={movie.id}
       src={`${base_url}${
-      isLargeRow ? movie.poster_path : movie.backdrop_path
+      movie.poster_path
       }`} alt={movie.name}/>
     
     {hover && (
