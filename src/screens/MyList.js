@@ -16,6 +16,7 @@ function MyList() {
         })
     }, [user?.email])
 
+    
     const movieRef = doc(db, 'users', `${user?.email}`)
     const deleteShow = async (passedID) => {
       try {
@@ -36,7 +37,7 @@ function MyList() {
             <h1>My List</h1>
             <div className='myList_movies'>
                 {movies.map((movie)=> (
-                    <Card movie={movie} deleteShow={deleteShow} />
+                    <Card key={movie.id} movie={movie} deleteShow={deleteShow} />
                 ))}
             </div>
         </div>

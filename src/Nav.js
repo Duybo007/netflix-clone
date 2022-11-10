@@ -36,7 +36,6 @@ function Nav() {
       const dispatch = useDispatch()
       const [search,setSearch]=useState()
       const [url_set,setUrl]=useState(base_Url)
-      const [searched, setSearched] = useState([])
       const searchMovie=(evt) => {
         
         if(evt.key=="Enter"){
@@ -45,15 +44,14 @@ function Nav() {
             setUrl(url)
             setSearch(" ")
             navigate('/search')
-            dispatch(searchMovies(searched))
+            
         }
       }
 
       useEffect(()=> {
         async function fetchData(){
             const res = await axios.get(url_set)
-            
-            setSearched(res.data.results)
+            dispatch(searchMovies(res.data.results))
         }
         fetchData()
       }, [url_set])

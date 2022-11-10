@@ -1,0 +1,19 @@
+.searchScreen {
+    height:100vh;
+    background-color: black;
+    color: white;
+    margin: 0;
+}
+
+.searchScreen .search_info > h1{
+    color: #fff;
+    position: absolute;
+    margin-top: 100px;
+    object-fit: contain;
+    margin-left: 20px;
+}
+
+.search_movies{
+    display: flex;
+}
+
