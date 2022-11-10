@@ -3,16 +3,15 @@ import React, { useEffect, useState } from 'react'
 import "./Row.css"
 import Card from './Card'
 import { useSelector } from 'react-redux'
-import { selectUser } from './features/counter/userSlice'
+import { selectMyMovie, selectUser } from './features/counter/userSlice'
 
 import {updateDoc, doc, onSnapshot} from 'firebase/firestore'
 import { db } from './firebase'
 
 
 function Row({title, fetchUrl, isLargeRow}) {
-
+    // fetch movies from API
     const[movies, setMovies] = useState([])
-
     useEffect(()=>{
         async function fetchData(){
             const request = await axios.get(fetchUrl)
@@ -24,15 +23,9 @@ function Row({title, fetchUrl, isLargeRow}) {
     
     
 
-    const [myMovies, setMyMovies] = useState([])
+    //Pass down deleteShow func to Card in Home page
     const user = useSelector(selectUser)
-    useEffect(()=> {
-        onSnapshot(doc(db, 'users', `${user?.email}`), (doc)=> {
-            setMyMovies(doc.data()?.savedShows)
-        })
-    }, [user?.email])
-
-    
+    const myMovies = useSelector(selectMyMovie)
     const movieRef = doc(db, 'users', `${user?.email}`)
     const deleteShow = async (passedID) => {
       try {

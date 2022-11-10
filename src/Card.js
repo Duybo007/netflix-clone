@@ -4,7 +4,7 @@ import { PlayIcon, CheckCircleIcon, ThumbUpIcon, ThumbDownIcon, PlusCircleIcon, 
 import {db} from './firebase'
 import {arrayUnion, doc, updateDoc, onSnapshot} from 'firebase/firestore'
 import { useSelector } from 'react-redux'
-import { selectUser } from './features/counter/userSlice'
+import { selectMyMovie, selectUser } from './features/counter/userSlice'
 import axios from 'axios'
 
 
@@ -54,15 +54,9 @@ function Card({movie, isLargeRow, deleteShow}) {
         })
       }
       }
-
-      
-      const [myMovies, setMyMovies] = useState([])
-      useEffect(()=> {
-          onSnapshot(doc(db, 'users', `${user?.email}`), (doc)=> {
-              setMyMovies(doc.data()?.savedShows)
-          })
-      }, [user?.email])
-      console.log(myMovies)
+      // Check if movie is already in MyList
+      //if yes, change Icon to Check from Plus
+      const myMovies = useSelector(selectMyMovie)
       useEffect(()=>{
           myMovies.map((m)=> {
           if(m.id === movie.id){

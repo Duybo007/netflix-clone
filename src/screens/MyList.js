@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react'
 import Nav from '../Nav'
 import './MyList.css'
 import {updateDoc, doc, onSnapshot} from 'firebase/firestore'
-import { useSelector } from 'react-redux'
-import { selectUser } from '../features/counter/userSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { myMovies, selectUser } from '../features/counter/userSlice'
 import { db } from '../firebase'
 import Card from '../Card'
 
 function MyList() {
+    const dispatch=useDispatch()
     const [movies, setMovies] = useState([])
     const user = useSelector(selectUser)
     useEffect(()=> {
         onSnapshot(doc(db, 'users', `${user?.email}`), (doc)=> {
             setMovies(doc.data()?.savedShows)
+            dispatch(myMovies(doc.data()?.savedShows))
         })
     }, [user?.email])
 

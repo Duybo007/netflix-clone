@@ -36,8 +36,9 @@ function Nav() {
       const dispatch = useDispatch()
       const [search,setSearch]=useState()
       const [url_set,setUrl]=useState(base_Url)
+      
+      //Search movie with search bar
       const searchMovie=(evt) => {
-        
         if(evt.key=="Enter"){
             evt.preventDefault()
             const url = `https://api.themoviedb.org/3/search/movie?api_key=db95773a7fb212ba790d71f6adac0e7e&query=${search}`
@@ -47,7 +48,6 @@ function Nav() {
             
         }
       }
-
       useEffect(()=> {
         async function fetchData(){
             const res = await axios.get(url_set)
