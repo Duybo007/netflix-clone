@@ -34,29 +34,29 @@ function Nav() {
       ];
 
       const base_Url = "https://api.themoviedb.org/3"
-      const dispatch = useDispatch()
+      // const dispatch = useDispatch()
       const [search,setSearch]=useState()
-      const [url_set,setUrl]=useState(base_Url)
+      // const [url_set,setUrl]=useState(base_Url)
       
       //Search movie with search bar
       const searchMovie= (evt) => {
         if(evt.key=="Enter"){
             evt.preventDefault()
-            const url = `https://api.themoviedb.org/3/search/movie?api_key=db95773a7fb212ba790d71f6adac0e7e&query=${search}`
-            setUrl(url)
+            // const url = `https://api.themoviedb.org/3/search/movie?api_key=db95773a7fb212ba790d71f6adac0e7e&query=${search}`
+            // setUrl(url)
             setSearch(" ")
-            // navigate('/search')
+            navigate(`/search/${search}`)
             
         }
       }
-      useEffect(()=> {
-        async function fetchData(){
-            const res = await axios.get(url_set)
-            dispatch(searchMovies(res.data.results))
+      // useEffect(()=> {
+      //   async function fetchData(){
+      //       const res = await axios.get(url_set)
+      //       dispatch(searchMovies(res.data.results))
 
-        }
-        fetchData()
-      }, [url_set])
+      //   }
+      //   fetchData()
+      // }, [url_set])
 
   return (
     <div className={`nav ${show && "nav_black"}`}>

@@ -47,7 +47,7 @@ function App() {
             <Route exact path="/" element={<HomeScreen />} />
             <Route path="/profile" element={<ProfileScreen />} />
             <Route path="/mylist" element={<MyList />} />
-            <Route path="/search" element={<SearchScreen />} />
+            <Route path="/search/:term" element={<SearchScreen />} />
             </Routes>
           )}
         

@@ -7,7 +7,9 @@ import { myMovies, selectUser } from '../features/counter/userSlice'
 import { db } from '../firebase'
 import Card from '../Card'
 
+
 function MyList() {
+    
     const dispatch=useDispatch()
     const [movies, setMovies] = useState([])
     const user = useSelector(selectUser)

@@ -4,13 +4,9 @@ import "./HomeScreen.css"
 import Nav from '../Nav'
 import requests from '../Requests'
 import Row from '../Row'
-import { useSelector } from 'react-redux'
-import { selectMovie } from '../features/counter/userSlice'
-import Card from '../Card'
+
 
 function HomeScreen() {
-  const searchMovies = useSelector(selectMovie)
-  console.log(searchMovies)
 
   return (
     <div className='HomeScreen'>
