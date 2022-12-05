@@ -29,10 +29,6 @@
     margin-top: 5px;
 }
 
-.logo{
-    
-}
-
 .nav_logo{
     position: fixed;
     top: 20px;
@@ -94,4 +90,21 @@
     opacity: 1;
     visibility: visible;
     padding: 0.3rem;
+}
+
+@media screen and (max-width: 1150px){
+    .nav_links{
+        left: 20%
+    }
+
+    .search{
+        margin-right: 5rem;
+    }
+}
+
+
+@media screen and (max-width: 850px){
+    .nav_links{
+        left: 25%
+    }
 }

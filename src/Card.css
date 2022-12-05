@@ -18,7 +18,7 @@
     border-radius: 0.3rem;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
     background-color: #181818;
-    transition: 0.5s ease-in-out;
+    transition: 2s ease-in-out;
 }
 
 .card_container .hovered .hovered_poster {
@@ -56,6 +56,11 @@
 
 .card_container .hovered .hovered_info .hovered_genres{
     display: flex;
+    overflow-x: scroll;
+}
+
+.card_container .hovered .hovered_info .hovered_genres::-webkit-scrollbar{
+    display: none;
 }
 
 .card_container .hovered .hovered_info .hovered_genres > p {
