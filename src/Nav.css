@@ -16,6 +16,7 @@
     cursor: pointer;
     position: fixed;
     left: 13%;
+    z-index: 1;
 }
 
 .nav_links > p:hover{
@@ -82,7 +83,8 @@
 
 .show-search {
     border: 1px solid white;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgb(0, 0, 0);
+    z-index: 99;
 }   
 
 .show-search > input {
@@ -90,6 +92,7 @@
     opacity: 1;
     visibility: visible;
     padding: 0.3rem;
+    z-index: 99;
 }
 
 @media screen and (max-width: 1150px){
@@ -106,5 +109,16 @@
 @media screen and (max-width: 850px){
     .nav_links{
         left: 25%
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .nav_logo{
+        width: 100px;
+    }
+
+    .nav_links{
+        left: 30%;
+        top: 3%
     }
 }

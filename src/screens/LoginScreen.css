@@ -42,8 +42,7 @@
 .loginScreen_body {
     position: absolute;
     top:30%;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin: 0 auto;
     text-align: center;
     z-index: 1;
     color: #fff;
@@ -89,4 +88,10 @@
 
 .loginScreen_input{
     margin: 20px;
+}
+
+@media screen and (max-width: 650px)  {
+    .loginScreen_body{
+        top: 15%
+    }
 }

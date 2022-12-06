@@ -55,17 +55,18 @@ function Nav() {
               onClick={()=> navigate("/")}
               className='nav_logo' src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt=''/>
             </div>
+
             <div className='nav_links'>
                 {links.map(({name, link})=>
                 <p onClick={()=> navigate(link)}>{name}</p>
                 )}
             </div>
+
             {/* expandable search bar */}
             <div className={`search ${showSearch ? "show-search" : ""}`}>
               <SearchIcon 
               onClick={() => setShowSearch(true)}
               onBlur={() => {setShowSearch(false);}}/>
-            
               <input
                   onChange={(e)=>{setSearch(e.target.value)}}
                   value={search}

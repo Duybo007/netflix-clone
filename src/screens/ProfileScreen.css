@@ -60,3 +60,27 @@
     border-bottom: 1px solid #282c2d;
     padding-bottom: 10px;
 }
+
+@media screen and (max-width: 650px) {
+    .profileScreen_body > h1{
+        font-size: 40px;
+    }
+
+    .profileScreen_body{
+        padding-top: 35%;
+    }
+
+    .profileScreen_info{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .profileScreen_info > img{
+        height: 100%;
+        width: 150px;
+    }
+
+    .profileScreen_details {
+        margin-left: 0;
+    }
+}
