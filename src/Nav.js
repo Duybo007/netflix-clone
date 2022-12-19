@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Nav.css'
 import {SearchIcon} from '@heroicons/react/solid'
-import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import { searchMovies } from './features/counter/userSlice';
-import { async } from '@firebase/util';
+
 
 function Nav() {
     const [showSearch, setShowSearch] = useState(false);

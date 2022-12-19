@@ -1,9 +1,9 @@
 .signinScreen{
-    max-width: 300px;
-    padding: 70px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgba(0,0,0,0.85);
+        max-width: 300px;
+        padding: 70px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(0,0,0,0.85);
 }
 
 .signinScreen > form {
